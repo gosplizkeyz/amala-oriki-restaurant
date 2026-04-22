@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block class %} class="sub_page" {% endblock class%}
+{% block menustatus %}active{% endblock menustatus %}
+{% block mainblock %}
+{% load static %}  <!-- Load static files -->
+
+<!-- food section -->
+<section class="food_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Our Menu</h2>
+    </div>
+
+    <ul class="filters_menu">
+      <li class="active" data-filter="*">All</li>
+      {% for category in categories %}
+     <li data-filter=".{{category.Category_name|slugify}}">
+  {{category.Category_name}}
+</li>
+      {% endfor %}
+    </ul>
+
+    <div class="filters-content">
+      <div class="row grid">
+        {% for item in items %}
+        <div class="col-sm-6 col-lg-4 all {{ item.category.Category_name|slugify }}">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="/media/{{item.image}}" alt="Food Item" />
+              </div>
+              <div class="detail-box">
+                <h5>{{ item.item_name }}</h5>  <!-- Display item name -->
+                <p>{{ item.description }}</p>  <!-- Display item description -->
+                <div class="options">
+                  <!-- DELETE THIS 
+                  <h6>${{ item.price }}</h6> --> 
+                  <a href="#">
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 456.029 456.029"
+                    >
+                      <g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248 ..."/></g>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  <!-- Closing div moved here -->
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="btn-box">
+      <a href="#"> View More </a>
+    </div>
+  </div>
+</section>
+<!-- end food section -->
+{% endblock mainblock %}

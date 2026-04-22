@@ -1,0 +1,323 @@
+{% extends "base.html" %} {% load static %} {% block slider %}
+<!-- slider section -->
+<section class="slider_section">
+  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-lg-6">
+              <div class="detail-box">
+                <h1>Amala Restaurant</h1>
+                <!-- -->
+                <p>
+                  🍽️ Dine in |🥣 Take-out |
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1" style="background-color:#f44737"> Order Now </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-lg-6">
+              <div class="detail-box">
+                <h1>Amala Restaurant</h1>
+                <p>
+                  |🛵 Delivery |
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1" style="background-color:#f44737"> Order Now </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-lg-6">
+              <div class="detail-box">
+                <h1>Amala Restaurant</h1>
+                <p>
+                  |👩🏽‍🍳 Catering |
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1" style="background-color:#f44737"> Order Now </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <ol class="carousel-indicators">
+        <li
+          data-target="#customCarousel1"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#customCarousel1" data-slide-to="1"></li>
+        <li data-target="#customCarousel1" data-slide-to="2"></li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- end slider section -->
+
+{% endblock slider %} 
+{% block homestatus %}active{% endblock homestatus %}
+{% block mainblock %}
+
+<!-- offer section -->
+
+<section class="offer_section layout_padding-bottom">
+  <div class="offer_container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src=" {% static 'images/o1.jpg' %}" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>Amala Special</h5>
+              <h6><span>5%</span> Off</h6>
+              <a href="javascript:void(0)" onclick="openWheel()" class="btn1" style="background-color:#f44737">
+   Spin & Win 🎡
+</a>
+                
+        
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src=" {% static 'images/o2.jpg' %}" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>Weekend Chop Life 🍗</h5>
+              <h6><span>10%</span> Off</h6>
+             <a href="javascript:void(0)" onclick="openWheel()" class="btn1" style="background-color:#f44737">
+   Spin & Win 🎡
+</a>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end offer section -->
+
+<!-- food section -->
+<section class="food_section layout_padding">
+  <div class="container">
+
+    <div class="heading_container heading_center">
+      <h2>Food Section 🍽️</h2>
+    </div>
+
+    {% for category in food_categories %}
+      <h3 style="margin-top:40px;">{{ category.Category_name }}</h3>
+
+      <div class="row">
+        {% for item in items %}
+          {% if item.category.id == category.id %}
+            <div class="col-sm-6 col-lg-4">
+              <div class="box">
+
+                <div class="img-box">
+                  <img src="/media/{{item.image}}" />
+                </div>
+
+                <div class="detail-box">
+                  <h5>{{ item.item_name }}</h5>
+                  <p>{{ item.description }}</p>
+                </div>
+
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+<!-- end food section -->
+ 
+ <!-- snack section-->
+<section class="food_section layout_padding" style="background:#f8f8f8;">
+  <div class="container">
+
+    <div class="heading_container heading_center">
+      <h2>Snacks 🍟</h2>
+    </div>
+
+    {% for category in snack_categories %}
+      <h3 style="margin-top:40px;">{{ category.Category_name }}</h3>
+
+      <div class="row">
+        {% for item in items %}
+          {% if item.category.id == category.id %}
+            <div class="col-sm-6 col-lg-4">
+              <div class="box">
+
+                <div class="img-box">
+                  <img src="/media/{{item.image}}" />
+                </div>
+
+                <div class="detail-box">
+                  <h5>{{ item.item_name }}</h5>
+                  <p>{{ item.description }}</p>
+                </div>
+
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+ <!-- end snack section -->
+
+<!-- about section -->
+
+<section class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-box">
+          <img src="images/about-img.png" alt="" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>We Are Amala Oriki </h2>
+          </div>
+          <p>
+            🍽️ Dine in |🥣 Take-out |
+          </p>
+          <a href=""> Read More </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end about section -->
+
+      <!-- book section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Book A Table
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url 'Book_table_view' %}" method='POST'>{% csrf_token %}
+              <div>
+                <input type="text" class="form-control" name="user_name" required placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" class="form-control" name="phone_number" required placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" class="form-control" name="email" required placeholder="Your Email" />
+              </div>
+              <div>
+                <select class="form-control nice-select wide" required name="total_person">
+                  <option value="" disabled selected>
+                    How many persons?
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                </select>
+              </div>
+              <div>
+                <input type="date" name="booking_date" required class="form-control">
+              </div>
+              <div class="btn_box">
+                <button>
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+  <div class="map_container">
+    <iframe
+      src="https://www.google.com/maps?q=Lekki+County+Alternative+Route,+Ajah,+Lagos&output=embed"
+      width="100%"
+      height="350"
+      style="border:0; border-radius:10px;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+  <!-- end book section -->
+
+<!-- client section -->
+
+<section class="client_section layout_padding-bottom">
+  <div class="container">
+    <div class="heading_container heading_center psudo_white_primary mb_45">
+      <h2>What Says Our Customers</h2>
+    </div>
+    <div class="carousel-wrap row">
+        <div class="owl-carousel client_owl-carousel">
+          {% for reviews in review %}
+        <div class="item">
+          <div class="box">
+            <div class="detail-box">
+              <p>{{reviews.description}}</p>
+              <h6>{{reviews.user_name}}</h6>
+              <p><span style="color:yellow">Rating</span>  : {{reviews.rating}}/5</p>
+            </div>
+            <div class="img-box">
+              <img src="/media/{{reviews.image}}" alt="" class="box-img" />
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end client section -->
+
+{% endblock mainblock %}

@@ -1,0 +1,1 @@
+web: gunicorn Restaurants_Projects.wsgi
