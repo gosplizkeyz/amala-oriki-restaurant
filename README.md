@@ -1,6 +1,7 @@
 # 🍽️ Amala Oriki Restaurant
 
-![Amala Oriki Restaurant Banner](https://via.placeholder.com/1200x400?text=Amala+Oriki+Restaurant)
+![Uploading hero-bg.jpg…]()
+
 
 A modern restaurant website built with **Django**, designed to showcase authentic Nigerian cuisine, provide an engaging user experience, and allow customers to explore menus, place orders, and interact with the restaurant online.
 
